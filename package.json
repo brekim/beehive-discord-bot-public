@@ -1,0 +1,18 @@
+{
+    "name": "Beehive",
+    "version": "1.0.1",
+    "description": "Tells you he'll be on in 30 minutes, takes an hour-long shower instead.",
+    "main": "bot.js",
+    "author": "Liighti",
+    "dependencies": {
+        "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+        "winston": "^3.2.1"
+    },
+    "scripts": {
+        "start": "node bot.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/brekim/beehive-discord-bot.git"
+    }
+}
