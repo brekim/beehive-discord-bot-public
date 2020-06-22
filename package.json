@@ -1,6 +1,6 @@
 {
     "name": "Beehive",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Tells you he'll be on in 30 minutes, takes an hour-long shower instead.",
     "main": "bot.js",
     "author": "Liighti",
