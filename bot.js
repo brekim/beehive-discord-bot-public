@@ -83,13 +83,18 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     break;
                 }
 
+                //Special Cases
+                if(equalsIgnoreCase(args[0], 'UK') || equalsIgnoreCase(args[0], 'England') || equalsIgnoreCase(args[0], 'Tea') || equalsIgnoreCase(args[0], 'Coffee') || equalsIgnoreCase(args[0], 'Hifi') || equalsIgnoreCase(args[0], 'Hifi') || equalsIgnoreCase(args[0], 'F1') || equalsIgnoreCase(args[0], 'McClaren') || equalsIgnoreCase(args[0], 'LewisHamilton' || equalsIgnoreCase(args[0], 'LewisHamilton'))) {
+                    ratingDecision = 11;
+                } else if(equalsIgnoreCase(args[0], 'EU') || equalsIgnoreCase(args[0], 'CCP')  || equalsIgnoreCase(args[0], 'France')  || equalsIgnoreCase(args[0], 'Germany')) {
+                    ratingDecision = -1;
+                }
+
                 messageString = "I'd rate " + args[0] + " " + ratingDecision + "/10";
 
                
-                if(ratingDecision == 10) {
-                    ratingDecision += "!";
-                } else {
-                    ratingDecision += ".";
+                if(ratingDecision == 10 || ratingDecision == 11) {
+                    messageString += "!";
                 }
 
                 bot.sendMessage({
@@ -116,6 +121,32 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     break check;
                 }
             }
+        }
+    }
+
+    // SPECIAL RESPONSE FOR JONATHON ONLY //
+    
+    //First condition: checks if the message is a DM
+    //Second condition: checks if the person is Jonathon
+    if(channelID in bot.directMessages && (userID === '210609348378886144' || userID === '373299931986919435')) {
+        console.log("VIP message from Jonathon!... or the dev (lame).");
+
+        if(equalsIgnoreCase(message.substring(0, 5), 'later')) {
+            messageString = "I can't be on until tonight\n\n(This alert was sent by Jonathon through DMs using Beehive Bot)"
+
+            bot.sendMessage({
+                to: '651878158815199241',
+                message: messageString
+            });
+        }
+
+        if(equalsIgnoreCase(message.substring(0, 5), 'cant')) {
+            messageString = "Can't play tonight\n\n(This alert was sent by Jonathon through DMs using Beehive Bot)"
+
+            bot.sendMessage({
+                to: '651878158815199241',
+                message: messageString
+            });
         }
     }
 
